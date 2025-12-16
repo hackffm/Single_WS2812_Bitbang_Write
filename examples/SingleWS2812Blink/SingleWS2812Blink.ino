@@ -14,11 +14,15 @@
 */
 
 #include "WS2812Write.h"
+#ifndef WS2812_LED_PIN
 #define WS2812_LED_PIN 6  // Pin where the WS2812 LED is connected
+#endif
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   // no need to initialize the ws2812 library or pin before :-)
+  //Serial.begin(74880); // Start serial for debugging (optional)
+  //Serial.println("Single WS2812 Blink Example");
 }
 
 // the loop function runs over and over again forever

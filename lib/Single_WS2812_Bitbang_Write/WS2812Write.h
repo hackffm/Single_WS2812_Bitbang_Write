@@ -13,9 +13,6 @@
  * @param color_rgb 24-bit color format 0xRRGGBB
  */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 // ws_settings for different LEDs
 typedef enum {
@@ -29,6 +26,3 @@ typedef enum {
 
 void ws2812Write(uint8_t pin, uint32_t color_rgb, ws2812_write_led_type_t led_type = WS2812WRITE_GRB);
 
-#ifdef __cplusplus
-}
-#endif
