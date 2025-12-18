@@ -11,6 +11,8 @@
  *
  * @param pin GPIO number 
  * @param color_rgb 24-bit color format 0xRRGGBB
+ * @param led_count Number of LEDs to write the same color to (default: 1)
+ * @param led_type Color order type (default: WS2812WRITE_GRB)
  */
 
 
@@ -24,5 +26,4 @@ typedef enum {
   WS2812WRITE_GRB   /* Most WS2812 types */
 } ws2812_write_led_type_t;
 
-void ws2812Write(uint8_t pin, uint32_t color_rgb, ws2812_write_led_type_t led_type = WS2812WRITE_GRB);
-
+void ws2812Write(uint8_t pin, uint32_t color_rgb, uint8_t led_count = 1, ws2812_write_led_type_t led_type = WS2812WRITE_GRB);

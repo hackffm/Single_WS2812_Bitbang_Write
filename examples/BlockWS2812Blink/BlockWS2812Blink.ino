@@ -1,23 +1,25 @@
 /*
-  SingleWS2812Blink.ino - Example sketch to blink a single WS2812 LED
+  BlockWS2812Blink.ino - Example sketch to blink a line of 8 WS2812 LEDs
   Created by Lutz Lisseck, December 2025.
 
-  Colors the WS2812 LED in pink for one second,
+  Colors the WS2812 LEDs in pink for one second,
   then turns it green for one second in an endless loop. 
 
-  LED should be a WS2812 or WS2812B type.
+  LEDs should be a WS2812 or WS2812B type.
   
-  Add a third argument if you want to set more than one LED - all will get the same color.
   Add a fourth argument to ws2812Write() if your LED uses a 
   different color order then GRB (as most WS2812 types do).
 
   This example code is in the public domain.
 */
 
-#include "WS2812Write.h"
+#include <WS2812Write.h>
 #ifndef WS2812_LED_PIN    // can be defined in platformio.ini
 #define WS2812_LED_PIN 6  // Pin where the WS2812 LED is connected
 #endif
+
+#define LED_BLOCK_COUNT 8  // Number of WS2812 LEDs in the block
+
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -28,8 +30,8 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  ws2812Write(WS2812_LED_PIN, 0xFF00FF);  // turn the LED pink (RGB: 255, 0, 255)
+  ws2812Write(WS2812_LED_PIN, 0xFF00FF, LED_BLOCK_COUNT);  // turn the LEDs pink (RGB: 255, 0, 255)
   delay(1000);                            // wait for a second
-  ws2812Write(WS2812_LED_PIN, 0x00FF00);  // turn the LED green (RGB: 0, 255, 0)
+  ws2812Write(WS2812_LED_PIN, 0x00FF00, LED_BLOCK_COUNT);  // turn the LEDs green (RGB: 0, 255, 0)
   delay(1000);                            // wait for a second
 }
