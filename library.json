@@ -1,6 +1,6 @@
 {
   "name": "Single_WS2812_Bitbang_Write",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Simple single-LED WS2812 driver using bitbang (no MCU peripheral required). Exposes ws2812Write(uint8_t pin, uint32_t color).",
   "keywords": ["ws2812", "neopixel", "bitbang", "led"],
   "authors": [
