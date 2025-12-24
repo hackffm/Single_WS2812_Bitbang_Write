@@ -22,4 +22,13 @@ Library that provides the simple function ws2812Write(pin, color) to set the col
 
 ## API
 ```c
+#include <WS2812Write.h>
 void ws2812Write(uint8_t pin, uint32_t color_rgb, uint8_t led_count = 1, ws2812_write_led_type_t led_type = WS2812WRITE_GRB);
+```
+
+## Installation
+### Arduino
+Install via library manager, pick an ESP32 or EPS8266 board and run examples.
+### Platformio
+Install via Platformio registry or by adding `tutgit/Single_WS2812_Bitbang_Write@^1.0.0` to your `lib_deps` line. You can also download this repository and run the examples directly - select the example you want to run in platformio.ini. 
+
