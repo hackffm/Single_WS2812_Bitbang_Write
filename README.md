@@ -1,4 +1,4 @@
-# WS2812 Bitbang — Single LED driver
+# WS2812 Bitbang Write — Single LED driver for WS2812(B) based RGB-LEDs (also known as NeoPixels)
 
 Library that provides the simple function ws2812Write(pin, color) to set the color of **a single** WS2812 LED without prior initialization and without any special peripherial hardware requirements (no Timer, RMT, IRQ, DMA...) by using bitbang output. Currently ESP MCUs are supported. 
 
@@ -7,6 +7,13 @@ Library that provides the simple function ws2812Write(pin, color) to set the col
 - Simple api: `ws2812Write(uint8_t pin, uint32_t color_rgb)` Color 0xRRGGBB
 - Extended api: `ws2812Write(uint8_t pin, uint32_t color, uint8_t led_count, ws2812_write_led_type_t led_type)` if you want to set color of more than one LED or need other color orders
 - Minimal Footprint but time sensitive, works only for certain MCUs (tested on ESP8266, ESP32 and ESP32S3) and clock frequencies
+
+## Hints
+- Ideally to control the single RGB-LED often found on ESP32 boards
+- You can also cut-off a single WS2812B LED from a LED strip and connect it directly to a GPIO. Connect VCC to +3.3V instead of +5V - by that you will not need any additional components like level-shifters or resistor and small amounts of WS2812-LEDs are running just fine even on 3.3V.
+- Use the well-known Adafruit_Neopixel or FastLED libraries if you need to control LED stripes or if you need more control - you can still combine those with this library to e.g. indicate the status on the on-board single LED for your multi-LED stripe-controller...
+- With this library you can control single WS2812 LEDs on nearly all available GPIOs without running out of RMT or whatever MCU special peripherials.
+- Newer LED stripes uses WS2812B instead of the older WS2812. They are compatible, but the newer WS2812B do not require a level-shifter when they are powered with 5V but attached to a 3.3V GPIO.  
 
 ## Info
 - Blocks interrupts while pushing out data to LED (around 30us per LED)
